@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Container>
+  <Name>wallabag</Name>
+  <Support>https://hub.docker.com/r/wallabag/wallabag/</Support>
+  <Description>Official docker-composer for wallabag.
+
+[b]Converted By Community Applications[/b]</Description>
+  <Overview>Official docker-composer for wallabag.
+
+[b]Converted By Community Applications[/b]</Overview>
+  <Registry>https://hub.docker.com/r/wallabag/wallabag/~/dockerfile/</Registry>
+  <Repository>wallabag/wallabag</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Wallabag</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:80]</WebUI>
+  <Icon>http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-3/1024/Pocket-icon.png</Icon>
+
+  <Network Default="bridge">bridge</Network>
+
+  <Config Type="Port" Name="Web Interface Port" Target="80" Default="80" Mode="tcp" Display="always-hide" Required="true"
+       Description="This is Sync's Web UI port you can access via a web browser.">80</Config>
+
+  <Config Type="Path" Name="Config Storage Path" Target="/config" Default="/mnt/user/appdata/Wallabag" Mode="rw" Display="advanced-hide" Required="true"
+       Description="This is where Sync will store its databases and configuration.">/mnt/user/appdata/Wallabag</Config>
+</Container>
